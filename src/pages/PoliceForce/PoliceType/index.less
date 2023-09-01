@@ -1,0 +1,23 @@
+.policeType {
+    .list {
+        height: calc(100vh - 300px);
+        width: 100%;
+        margin-top: 20px;
+        background-color: #fff;
+        overflow-y: auto;
+        :global {
+            .ant-list-split .ant-list-item {
+                padding: 12px;
+            }
+        }
+    }
+    .pagination {
+        width: 100%;
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        display: flex;
+        justify-content: center;
+    }
+}
