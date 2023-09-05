@@ -110,7 +110,7 @@ const FloorManagement: React.FC = () => {
         {
             title: '操作',
             dataIndex: 'opa',
-            key: 'opa',
+            key: 'floorId',
             render: (_, record: API.FloorResult ) => <Space size="middle">
                 <a onClick={() => handleEdit(record)}>编辑</a>
                 <Popconfirm

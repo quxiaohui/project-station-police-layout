@@ -32,17 +32,17 @@ const LayoutManagement: React.FC = () => {
             <div className={styles.tabList}>
                 {
                     floorTabList?.map((tab, index) => {
-                        return <span key={index} className={styles.tabitem} onClick={() => clickFloorTab(tab)}>{tab?.floorName}</span>
+                        return <span key={index} className={currentFloorTab?.floorId===tab?.floorId ? styles.active : styles.tabitem} onClick={() => clickFloorTab(tab)}>{tab?.floorName}</span>
                     })
                 }
                 <div className={styles.content}>
                     {
                         currentFloorTab?.floorId === '71895aa6-d77f-43e9-8fdf-ab2e543a7286' ? 
-                            <Arrive/>
+                            <Leave/>
                             : currentFloorTab?.floorId === '06d964d1-dea7-4d1d-bac1-f18199bf7b82' ? 
                             <Platform/>
                             : currentFloorTab?.floorId === '5b5d9b0d-82f4-40fc-97bf-3d9a5ef2df75' ? 
-                            <Leave/>
+                            <Arrive/>
                             :
                             <div>其他</div>
 
