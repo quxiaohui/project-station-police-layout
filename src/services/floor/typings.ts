@@ -13,7 +13,7 @@ declare namespace API {
     }
     type FloorParams = {
         pageIndex: number;
-        pageSize: number;
+        pageSize?: number;
     }
 
     type SelectOptions = {

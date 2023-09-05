@@ -11,6 +11,14 @@ export default {
     // localhost:8000/api/** -> http://60.204.172.187//api/**
     '/api/': {
       // 要代理的地址
+      target: 'https://preview.pro.ant.design',
+      // 配置了这个可以从 http 代理到 https
+      // 依赖 origin 的功能可能需要这个，比如 cookie
+      changeOrigin: true,
+      pathRewrite: { '^': '' },
+    },
+    '/pdapi/': {
+      // 要代理的地址
       target: 'http://60.204.172.187/',
       // 配置了这个可以从 http 代理到 https
       // 依赖 origin 的功能可能需要这个，比如 cookie
@@ -20,7 +28,7 @@ export default {
   },
   test: {
     '/api/': {
-      target: 'http://60.204.172.187/',
+      target: 'https://preview.pro.ant.design',
       changeOrigin: true,
       pathRewrite: { '^': '' },
     },

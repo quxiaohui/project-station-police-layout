@@ -6,6 +6,7 @@ export default {
   'menu.resources': '资源管理',
   'menu.resources.type': '资源类型管理',
   'menu.resources.deployment': '资源部署管理',
+  'menu.layout': '资源布局',
   // 'menu.welcome': '欢迎',
   // 'menu.more-blocks': '更多区块',
   // 'menu.home': '首页',

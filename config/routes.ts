@@ -64,6 +64,12 @@
     ],
   },
   {
+    path: '/layout',
+    name: 'layout',
+    icon: 'table',
+    component: './Layouts',
+  },
+  {
     path: '/',
     redirect: '/floor',
   },
