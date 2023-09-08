@@ -17,10 +17,12 @@ import {
 import {
   addResourceDeployment,
   deleteResourceDeployment,
+  editResourceDeployment,
   getResourceDeploymentList,
   getResourceSelect,
 } from '@/services/resource/resource';
 import { getFloorSelect } from '@/services/floor/floor';
+import { editPoliceDeployment } from '@/services/police/police';
 
 const ResourcesDeployment = () => {
   const [form] = Form.useForm();
@@ -76,10 +78,10 @@ const ResourcesDeployment = () => {
   /**
    * 编辑楼层
    */
-  const handleEdit = (SourceDType) => {
+  const handleEdit = (sourceDType) => {
     setOpaType('edit');
-    setCurrentResource(SourceDType);
-    form.setFieldsValue(SourceDType);
+    setCurrentResource(sourceDType);
+    form.setFieldsValue(sourceDType);
     handleCancel(true);
   };
 
@@ -110,7 +112,6 @@ const ResourcesDeployment = () => {
   };
 
   const onFinish = async (values) => {
-    console.log(values, '===');
     if (opaType === 'add') {
       try {
         await addResourceDeployment({ ...values });
@@ -121,8 +122,9 @@ const ResourcesDeployment = () => {
         return false;
       }
     } else {
+      console.log(currentResource,'currentResource')
       try {
-        await addResourceDeployment({ ...values, deploymentId: currentResource?.deploymentId });
+        await editResourceDeployment({ ...values, deploymentId: currentResource?.deploymentId });
         pageCallback('编辑');
         return true;
       } catch (error) {

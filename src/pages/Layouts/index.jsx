@@ -39,15 +39,17 @@ const LayoutManagement = () => {
       <div className={styles.header}>{currentFloorTab?.floorTitle}</div>
       <div className={styles.content}>
         <div className={styles.contentLeft}>
-          {currentIndex === 0 ? (
-            <Leave />
-          ) : currentIndex === 1 ? (
-            <Platform floorId={currentFloorTab?.floorId} />
-          ) : currentIndex === 2 ? (
-            <Arrive />
-          ) : (
-            <div>其他</div>
-          )}
+          <div className={styles?.inner}>
+            {currentIndex === 0 ? (
+                <Leave />
+            ) : currentIndex === 1 ? (
+                <Platform floorId={currentFloorTab?.floorId} />
+            ) : currentIndex === 2 ? (
+                <Arrive />
+            ) : (
+                <div>其他</div>
+            )}
+          </div>
         </div>
         <div className={styles.contentRight}>
           <div className={styles.legend}>

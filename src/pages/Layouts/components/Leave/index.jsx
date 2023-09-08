@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from './index.less';
 
-const Leave: React.FC = () => {
+const Leave = () => {
     
 
     return (
