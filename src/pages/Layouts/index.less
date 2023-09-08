@@ -1,21 +1,52 @@
 .layoutManagement {
-    width: 100%;
-    height: 100%;
-    .tabList {
-        span {
-            margin-right: 15px;
-            display: inline-block;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  .header {
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+  }
+  .content {
+    display: flex;
+    flex: 1;
+    .contentLeft {
+      flex: 1;
+      border: 1px solid #000;
+    }
+    .contentRight {
+      position: relative;
+      width: 150px;
+      .legend {
+        width: 100%;
+        p {
+          display: flex;
+          align-items: center;
+          img {
+            width: 50px;
+          }
         }
-        .tabitem {
-            background-color: #fff;
+      }
+      .tabList {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
+        transform: translateX(-50%);
+        span {
+          padding: 8px;
+          border-radius: 4px;
+          cursor: pointer;
         }
         .active {
-            color: #1890ff;
-            background: #e6f7ff;
+          color: #1890ff;
+          background: #e6f7ff;
         }
+      }
     }
+  }
 }
