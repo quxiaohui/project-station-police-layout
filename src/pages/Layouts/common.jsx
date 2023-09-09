@@ -96,6 +96,10 @@ export function addModelByTypeName(typeName, positionX, positionY, positionZ, sc
     model.rotateY(Math.PI / 2);
   }
   scene.add(model);
+
+  // var textMesh = createTextModel(title);
+  // textMesh.position.set(positionX, positionY + 5, positionZ);
+  // scene.add(textMesh);
   // if (typeName == '背景' || typeName == '外边界' || typeName == '内边界') {
   //   scene.add(model);
   // }

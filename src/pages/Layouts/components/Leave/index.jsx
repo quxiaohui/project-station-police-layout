@@ -6,36 +6,12 @@ import { getResourceDeploymentList } from '@/services/resource/resource';
 import { getPoliceDeploymentList } from '@/services/police/police';
 import { addModelByTypeName } from '../../common.jsx';
 import { async } from './../../../../services/swagger/user';
+import { createTextModel } from '../../../../components/ThreeDModels/text-model.jsx'; //文字
 
 const Leave = (props) => {
   const [floorTabList, setFloorTabList] = useState([]);
   const [resourceLayoutList, setResourceLayoutList] = useState([]);
   const [policeLayoutList, setPoliceLayoutList] = useState([]);
-
-  //   '71895aa6-d77f-43e9-8fdf-ab2e543a7286'
-  const getResourceLayout = () => {
-    getResourceDeploymentList({
-      pageIndex: 0,
-      floorId: props?.floorId,
-    }).then(async (res) => {
-      console.log(res, '=111');
-      getPoliceLayout();
-      await setResourceLayoutList(res.data.data);
-      addModel(res.data.data);
-    });
-  };
-
-  const getPoliceLayout = () => {
-    getPoliceDeploymentList({
-      pageIndex: 0,
-      floorId: props?.floorId,
-    }).then(async (res) => {
-      console.log(res, '222');
-      initPage();
-      await setPoliceLayoutList(res.data.data);
-      addModel(res.data.data);
-    });
-  };
 
   //场景
   const scene = new THREE.Scene();
@@ -43,7 +19,95 @@ const Leave = (props) => {
   addModelByTypeName('外边界', 0, 0, 0, scene);
   addModelByTypeName('内边界', 0, 0, 0, scene);
 
-  //addModelByTypeName('站台', -450, 0, 90, scene);
+  const titleData = [{
+    'typeName': 'title',
+    'title': '西广场',
+    'positionX': -600,
+    'positionY': 20,
+    'positionZ': 0
+  }, {
+    'typeName': 'title',
+    'title': '东广场',
+    'positionX': 600,
+    'positionY': 20,
+    'positionZ': 0
+  }, {
+    'typeName': 'title',
+    'title': '车道',
+    'positionX': -20,
+    'positionY': 20,
+    'positionZ': -300
+  }, {
+    'typeName': 'title',
+    'title': '车道',
+    'positionX': -20,
+    'positionY': 20,
+    'positionZ': 300
+  }, {
+    'typeName': 'title',
+    'title': '进站口',
+    'positionX': -480,
+    'positionY': 20,
+    'positionZ': 0
+  }, {
+    'typeName': 'title',
+    'title': '进站口',
+    'positionX': 440,
+    'positionY': 20,
+    'positionZ': 0
+  }, {
+    'typeName': 'title',
+    'title': '进站口',
+    'positionX': -30,
+    'positionY': 20,
+    'positionZ': -180
+  }, {
+    'typeName': 'title',
+    'title': '进站口',
+    'positionX': -30,
+    'positionY': 20,
+    'positionZ': 180
+  }, {
+    'typeName': 'title',
+    'title': '候车大厅',
+    'positionX': -300,
+    'positionY': 20,
+    'positionZ': 0
+  }, {
+    'typeName': 'title',
+    'title': '磁浮候车厅',
+    'positionX': 300,
+    'positionY': 20,
+    'positionZ': 0
+  }]
+  createTextModel(titleData, scene);
+
+  //   '71895aa6-d77f-43e9-8fdf-ab2e543a7286'
+  const getResourceLayout = () => {
+    getResourceDeploymentList({
+      pageIndex: 0,
+      floorId: '71895aa6-d77f-43e9-8fdf-ab2e543a7286',
+    }).then(async (res) => {
+      console.log(res, '=111');
+      getPoliceLayout();
+      await setResourceLayoutList(res.data.data);
+      addModel(res.data.data);
+      createTextModel(res.data.data, scene);
+    });
+  };
+
+  const getPoliceLayout = () => {
+    getPoliceDeploymentList({
+      pageIndex: 0,
+      floorId: '71895aa6-d77f-43e9-8fdf-ab2e543a7286',
+    }).then(async (res) => {
+      console.log(res, '222');
+      await setPoliceLayoutList(res.data.data);
+      addModel(res.data.data);
+      createTextModel(res.data.data, scene);
+      initPage();
+    });
+  };
 
   const initPage = () => {
     console.log('initPage');
