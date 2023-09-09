@@ -10,6 +10,9 @@ import water_room_model from '../../components/ThreeDModels/water-room-model.jsx
 import equipment_room_model from '../../components/ThreeDModels/equipment-room-model.jsx'; //设备间
 import duty_room_model from '../../components/ThreeDModels/duty-room-model.jsx'; //执勤室
 import empty_room_model from '../../components/ThreeDModels/empty-room-model.jsx'; //空房间
+import men_model from '../../components/ThreeDModels/men-model.jsx'; //门
+import zuowei_model from '../../components/ThreeDModels/zuowei-model.jsx'; //座椅
+import zhantai_model from '../../components/ThreeDModels/zhantai-model.jsx'; //站台
 
 import jingche_model from '../../components/ThreeDModels/jingche-model.jsx'; //警车
 import diandongche_model from '../../components/ThreeDModels/diandongche-model.jsx'; //警用电动车
@@ -50,6 +53,15 @@ export function addModelByTypeName(typeName, positionX, positionY, positionZ, sc
       break;
     case '空房间':
       model = empty_room_model.clone();
+      break;
+    case '进站口':
+      model = men_model.clone();
+      break;
+    case '座椅':
+      model = zuowei_model.clone();
+      break;
+    case '站台':
+      model = zhantai_model.clone();
       break;
 
     case '警车':

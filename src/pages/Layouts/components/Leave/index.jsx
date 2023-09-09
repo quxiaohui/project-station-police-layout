@@ -41,6 +41,8 @@ const Leave = () => {
   addModelByTypeName('外边界', 0, 0, 0, scene);
   addModelByTypeName('内边界', 0, 0, 0, scene);
 
+  //addModelByTypeName('站台', -450, 0, 90, scene);
+
   const initPage = () => {
     console.log('initPage');
 
@@ -103,8 +105,8 @@ const Leave = () => {
     // 获取资源、警力部署
     getResourceLayout();
     getPoliceLayout();
-    initPage();
-    //setTimeout(() => { initPage(); }, 1000);
+    //initPage();
+    setTimeout(() => { initPage(); }, 2000);
   }, []);
   return <div className={styles.leave} id="container"></div>;
 };
