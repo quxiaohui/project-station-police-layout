@@ -30,7 +30,7 @@ export function createTextModel(data, scene) {
                 var geometry;
                 var material;
 
-                if (item.typeName == 'title') {
+                if (item.typeName == '文字') {
                     geometry = new textL(item.title, {
                         font: font,          // 字体格式
                         size: 14,           // 字体大小
@@ -44,9 +44,9 @@ export function createTextModel(data, scene) {
                     });
                 }
 
-                if (item.typeName == 'title' && (item.positionX > 500 || item.positionX < -500 || item.positionZ > 200 || item.positionZ < -200)) {
+                if (item.typeName == '文字' && (item.positionX > 500 || item.positionX < -500 || item.positionZ > 200 || item.positionZ < -200)) {
                     material = blackMat;
-                } else if (item.typeName == 'title') {
+                } else if (item.typeName == '文字') {
                     material = redMat;
                 } else {
                     material = mat;
@@ -56,11 +56,14 @@ export function createTextModel(data, scene) {
                 mesh.position.set(item.positionX, item.positionY, item.positionZ)
                 if (item.typeName == "民警" || item.typeName == "特警" || item.typeName == "警车" || item.typeName == "警用电动车" || item.typeName == "警犬") {
                     mesh.translateY(30);
-                } else if (item.typeName == "title") {
+                } else if (item.typeName == "文字") {
                     mesh.translateY(40);
                 }
                 else if (item.typeName == "站台") {
                     mesh.translateY(30);
+                    if (item.positionZ < 0) {
+                        mesh.translateX(-20);
+                    }
                 } else {
                     mesh.translateY(20);
                 }

@@ -16,41 +16,7 @@ const Arrive = (props) => {
     //场景
     const scene = new THREE.Scene();
     addModelByTypeName('背景', 0, 0, 0, scene);
-    addModelByTypeName('外边界', 0, 0, 0, scene);
     addModelByTypeName('内边界', 0, 0, 0, scene);
-
-    const titleData = [{
-        'typeName': 'title',
-        'title': '上客平台',
-        'positionX': -20,
-        'positionY': 20,
-        'positionZ': -300
-    }, {
-        'typeName': 'title',
-        'title': '上客平台',
-        'positionX': -20,
-        'positionY': 20,
-        'positionZ': 300
-    }, {
-        'typeName': 'title',
-        'title': '微笑亭',
-        'positionX': -300,
-        'positionY': 20,
-        'positionZ': 0
-    }, {
-        'typeName': 'title',
-        'title': '出站通道',
-        'positionX': -100,
-        'positionY': 20,
-        'positionZ': 0
-    }, {
-        'typeName': 'title',
-        'title': '温馨岛',
-        'positionX': 300,
-        'positionY': 20,
-        'positionZ': 0
-    }]
-    createTextModel(titleData, scene);
 
     //addModelByTypeName('站台', -450, 0, 90, scene);
 

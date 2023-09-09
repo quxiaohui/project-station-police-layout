@@ -19,69 +19,6 @@ const Leave = (props) => {
   addModelByTypeName('外边界', 0, 0, 0, scene);
   addModelByTypeName('内边界', 0, 0, 0, scene);
 
-  const titleData = [{
-    'typeName': 'title',
-    'title': '西广场',
-    'positionX': -600,
-    'positionY': 20,
-    'positionZ': 0
-  }, {
-    'typeName': 'title',
-    'title': '东广场',
-    'positionX': 600,
-    'positionY': 20,
-    'positionZ': 0
-  }, {
-    'typeName': 'title',
-    'title': '车道',
-    'positionX': -20,
-    'positionY': 20,
-    'positionZ': -300
-  }, {
-    'typeName': 'title',
-    'title': '车道',
-    'positionX': -20,
-    'positionY': 20,
-    'positionZ': 300
-  }, {
-    'typeName': 'title',
-    'title': '进站口',
-    'positionX': -480,
-    'positionY': 20,
-    'positionZ': 0
-  }, {
-    'typeName': 'title',
-    'title': '进站口',
-    'positionX': 440,
-    'positionY': 20,
-    'positionZ': 0
-  }, {
-    'typeName': 'title',
-    'title': '进站口',
-    'positionX': -30,
-    'positionY': 20,
-    'positionZ': -180
-  }, {
-    'typeName': 'title',
-    'title': '进站口',
-    'positionX': -30,
-    'positionY': 20,
-    'positionZ': 180
-  }, {
-    'typeName': 'title',
-    'title': '候车大厅',
-    'positionX': -300,
-    'positionY': 20,
-    'positionZ': 0
-  }, {
-    'typeName': 'title',
-    'title': '磁浮候车厅',
-    'positionX': 300,
-    'positionY': 20,
-    'positionZ': 0
-  }]
-  createTextModel(titleData, scene);
-
   //   '71895aa6-d77f-43e9-8fdf-ab2e543a7286'
   const getResourceLayout = () => {
     getResourceDeploymentList({
