@@ -41,13 +41,13 @@ const LayoutManagement = () => {
         <div className={styles.contentLeft}>
           <div className={styles?.inner}>
             {currentIndex === 0 ? (
-                <Leave />
+              <Leave floorId={currentFloorTab?.floorId} />
             ) : currentIndex === 1 ? (
-                <Platform floorId={currentFloorTab?.floorId} />
+              <Platform floorId={currentFloorTab?.floorId} />
             ) : currentIndex === 2 ? (
-                <Arrive />
+              <Arrive floorId={currentFloorTab?.floorId} />
             ) : (
-                <div>其他</div>
+              <div>其他</div>
             )}
           </div>
         </div>

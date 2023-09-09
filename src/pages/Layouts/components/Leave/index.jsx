@@ -7,32 +7,34 @@ import { getPoliceDeploymentList } from '@/services/police/police';
 import { addModelByTypeName } from '../../common.jsx';
 import { async } from './../../../../services/swagger/user';
 
-const Leave = () => {
-  // console.log(props, '====');
-
+const Leave = (props) => {
   const [floorTabList, setFloorTabList] = useState([]);
   const [resourceLayoutList, setResourceLayoutList] = useState([]);
   const [policeLayoutList, setPoliceLayoutList] = useState([]);
 
+  //   '71895aa6-d77f-43e9-8fdf-ab2e543a7286'
   const getResourceLayout = () => {
     getResourceDeploymentList({
       pageIndex: 0,
-      floorId: '71895aa6-d77f-43e9-8fdf-ab2e543a7286',
+      floorId: props?.floorId,
     }).then(async (res) => {
-      console.log(res, '====');
+      console.log(res, '=111');
+      getPoliceLayout();
       await setResourceLayoutList(res.data.data);
       addModel(res.data.data);
     });
   };
 
   const getPoliceLayout = () => {
-    getPoliceDeploymentList({ pageIndex: 0, floorId: '71895aa6-d77f-43e9-8fdf-ab2e543a7286' }).then(
-      async (res) => {
-        console.log(res, '====');
-        await setPoliceLayoutList(res.data.data);
-        addModel(res.data.data);
-      },
-    );
+    getPoliceDeploymentList({
+      pageIndex: 0,
+      floorId: props?.floorId,
+    }).then(async (res) => {
+      console.log(res, '222');
+      initPage();
+      await setPoliceLayoutList(res.data.data);
+      addModel(res.data.data);
+    });
   };
 
   //场景
@@ -101,12 +103,14 @@ const Leave = () => {
     });
   };
 
-  useEffect(() => {
+  useEffect(async () => {
+    // 改成1、获取资源 2、获取警力布署 3、初始化页面
     // 获取资源、警力部署
     getResourceLayout();
-    getPoliceLayout();
+    // getPoliceLayout();
     //initPage();
-    setTimeout(() => { initPage(); }, 2000);
+    console.log(333);
+    // setTimeout(() => { initPage(); }, 2000);
   }, []);
   return <div className={styles.leave} id="container"></div>;
 };
