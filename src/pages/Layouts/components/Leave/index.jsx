@@ -23,10 +23,9 @@ const Leave = (props) => {
   const getResourceLayout = () => {
     getResourceDeploymentList({
       pageIndex: 0,
-      floorId: '71895aa6-d77f-43e9-8fdf-ab2e543a7286',
+      floorId: props.floorId==null?'71895aa6-d77f-43e9-8fdf-ab2e543a7286':props.floorId,
     }).then(async (res) => {
       console.log(res, '=111');
-    //   getPoliceLayout();
       await setResourceLayoutList(res.data.data);
       addModel(res.data.data);
       createTextModel(res.data.data, scene);
@@ -36,13 +35,12 @@ const Leave = (props) => {
   const getPoliceLayout = () => {
     getPoliceDeploymentList({
       pageIndex: 0,
-      floorId: '71895aa6-d77f-43e9-8fdf-ab2e543a7286',
-    }).then((res) => {
-        console.log(res, '222');
-        setPoliceLayoutList(res.data.data);
-        addModel(res.data.data);
-        createTextModel(res.data.data, scene);
-    //   initPage();
+      floorId: props.floorId==null?'71895aa6-d77f-43e9-8fdf-ab2e543a7286':props.floorId,
+    }).then(async (res) => {
+      console.log(res, '222');
+      await setPoliceLayoutList(res.data.data);
+      addModel(res.data.data);
+      createTextModel(res.data.data, scene);
     });
   };
 

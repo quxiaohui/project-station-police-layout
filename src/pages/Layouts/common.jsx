@@ -106,7 +106,7 @@ export function addModelByTypeName(typeName, positionX, positionY, positionZ, sc
   if (positionZ < 0) {
     model.rotateY(Math.PI);
   }
-  if (positionX > 500 || positionX < -500) {
+  if ((positionX > 500 || positionX < -500)&& (typeName=='警车' || typeName=='警用电动车'|| typeName=='警犬'|| typeName=='岗厅'|| typeName=='民警'|| typeName=='特警'|| typeName=='进站口')) {
     model.rotateY(Math.PI / 2);
   }
   scene.add(model);

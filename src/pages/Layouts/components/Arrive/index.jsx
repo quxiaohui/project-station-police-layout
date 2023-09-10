@@ -22,7 +22,7 @@ const Arrive = (props) => {
     const getResourceLayout = () => {
         getResourceDeploymentList({
             pageIndex: 0,
-            floorId: '5b5d9b0d-82f4-40fc-97bf-3d9a5ef2df75',
+            floorId: props?.floorId,
         }).then(async (res) => {
             console.log(res, '=111');
             getPoliceLayout();
@@ -35,7 +35,7 @@ const Arrive = (props) => {
     const getPoliceLayout = () => {
         getPoliceDeploymentList({
             pageIndex: 0,
-            floorId: '5b5d9b0d-82f4-40fc-97bf-3d9a5ef2df75',
+            floorId: props?.floorId,
         }).then(async (res) => {
             console.log(res, '222');
             initPage();
@@ -105,12 +105,8 @@ const Arrive = (props) => {
 
     useEffect(async () => {
         // 改成1、获取资源 2、获取警力布署 3、初始化页面
-        // 获取资源、警力部署
         getResourceLayout();
-        // getPoliceLayout();
-        //initPage();
         console.log(333);
-        // setTimeout(() => { initPage(); }, 2000);
     }, []);
     return <div className={styles.arrive} id="container"></div>;
 };

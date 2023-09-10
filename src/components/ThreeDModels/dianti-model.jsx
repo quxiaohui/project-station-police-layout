@@ -4,7 +4,7 @@ const geometry = new THREE.BoxGeometry(40, 20, 30);
 //纹理贴图加载器TextureLoader
 const texLoader = new THREE.TextureLoader();
 // .load()方法加载图像，返回一个纹理对象Texture
-const texture = texLoader.load('textures/wc.png');
+const texture = texLoader.load('textures/shuizuan.jpg');
 
 // 设置阵列
 texture.wrapS = THREE.RepeatWrapping;
