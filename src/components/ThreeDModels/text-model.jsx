@@ -11,7 +11,7 @@ export function createTextModel(data, scene) {
     loader.load('../fonts/SimSun_Regular.json', function (font) {
         console.log("加载文字");
         var mat = new THREE.MeshPhongMaterial({
-            color: "#00FFFF",
+            color: "#007799",
             opacity: 0.8,
             shininess: 1,
         });
@@ -21,7 +21,7 @@ export function createTextModel(data, scene) {
             shininess: 1,
         });
         var redMat = new THREE.MeshPhongMaterial({
-            color: "#ff0000",
+            color: "#FF8888",
             opacity: 0.8,
             shininess: 1,
         });
@@ -30,17 +30,23 @@ export function createTextModel(data, scene) {
                 var geometry;
                 var material;
 
-                if (item.typeName == '文字') {
+                if (item.typeName == '文字' && (item.positionX > 500 || item.positionX < -500 || item.positionZ > 200 || item.positionZ < -200)) {
                     geometry = new textL(item.title, {
                         font: font,          // 字体格式
                         size: 14,           // 字体大小
-                        height: 1,          // 字体深度
+                        height: 6,          // 字体深度
+                    });
+                } else if (item.typeName == '文字') {
+                    geometry = new textL(item.title, {
+                        font: font,          // 字体格式
+                        size: 14,           // 字体大小
+                        height: 3,          // 字体深度
                     });
                 } else {
                     var geometry = new textL(item.title, {
                         font: font,          // 字体格式
                         size: 8,           // 字体大小
-                        height: 1,          // 字体深度
+                        height: 3,          // 字体深度
                     });
                 }
 
