@@ -12,7 +12,7 @@ const Settings: LayoutSettings & {
   fixedHeader: false,
   fixSiderbar: true,
   colorWeak: false,
-  title: '警力布置管理系统',
+  title: '杭州东站警力布置管理系统',
   pwa: false,
   logo: null,
   iconfontUrl: '',

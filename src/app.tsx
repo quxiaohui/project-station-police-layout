@@ -48,8 +48,8 @@ export async function getInitialState(): Promise<{
 
 // ProLayout 支持的api https://procomponents.ant.design/components/layout
 export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) => {
-  const pathname = window.location.pathname;
-  const isHide = pathname === '/layout';
+  // const pathname = window.location.pathname;
+  // const isHide = pathname === '/layout';
   const config = {
     rightContentRender: () => <RightContent />,
     disableContentMargin: false,
@@ -64,14 +64,14 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
       if (!initialState?.currentUser && location.pathname !== loginPath) {
         history.push(loginPath);
       }
-      if (location.pathname === '/layout') {
-        setInitialState({
-          settings: {
-            menuRender: false,
-            headerRender: false,
-          },
-        });
-      }
+      // if (location.pathname === '/layout') {
+      //   setInitialState({
+      //     settings: {
+      //       menuRender: false,
+      //       headerRender: false,
+      //     },
+      //   });
+      // }
     },
     // links: isDev
     //   ? [
@@ -86,6 +86,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
     //     ]
     //   : [],
     menuHeaderRender: undefined,
+    collapsedButtonRender: false,
     // 自定义 403 页面
     // unAccessible: <div>unAccessible</div>,
     // 增加一个 loading 的状态
@@ -113,9 +114,9 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
     ...initialState?.settings,
   };
 
-  if (isHide) {
-    config.menuRender = false;
-    config.headerRender = false;
-  }
+  // if (isHide) {
+  //   config.menuRender = false;
+  //   config.headerRender = false;
+  // }
   return config;
 };

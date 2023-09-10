@@ -7,7 +7,7 @@ import {
   Form,
   Input,
   InputNumber,
-  List,
+  Table,
   Modal,
   Pagination,
   PaginationProps,
@@ -108,10 +108,18 @@ const ResourcesType = () => {
   useEffect(() => {
     loadResourceList({ pageIndex: 1, pageSize: 10 });
   }, []);
+
+  const columns = [
+    {
+      title: '类型名称',
+      dataIndex: 'name',
+      key: 'name',
+    },
+  ]
   return (
     <PageContainer>
       <div className={styles.resourceType}>
-        <Button
+        {/* <Button
           type="primary"
           onClick={() => {
             setIsVisible(true);
@@ -120,36 +128,16 @@ const ResourcesType = () => {
           }}
         >
           新增
-        </Button>
+        </Button> */}
 
-        <div className={styles.list}>
-          <List
-            itemLayout="horizontal"
+        <div className={styles.table}>
+          <Table
             dataSource={resourceData}
+            columns={columns}
             loading={loading}
-            renderItem={(item, index) => (
-              <List.Item
-                actions={[
-                  <a key="list-loadmore-edit" onClick={() => handleEdit(item)}>
-                    编辑
-                  </a>,
-                  <Popconfirm
-                    title="确认删除该资源类型?"
-                    onConfirm={() => handleDel(item?.typeId)}
-                    okText="确认"
-                    cancelText="取消"
-                  >
-                    <a>删除</a>
-                  </Popconfirm>,
-                ]}
-              >
-                <List.Item.Meta
-                  avatar={<Avatar src={item.image} />}
-                  title={<a>{item.name}</a>}
-                  description=""
-                />
-              </List.Item>
-            )}
+            size="middle"
+            pagination={false}
+            scroll={{ y: 500 }}
           />
         </div>
         <div className={styles.pagination}>

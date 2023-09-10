@@ -121,30 +121,30 @@ const FloorManagement = () => {
       dataIndex: 'floorTitle',
       key: 'floorTitle',
     },
-    {
-      title: '操作',
-      dataIndex: 'opa',
-      key: 'floorId',
-      render: (_, record) => (
-        <Space size="middle">
-          <a onClick={() => handleEdit(record)}>编辑</a>
-          <Popconfirm
-            title="确认删除该楼层?"
-            onConfirm={() => handleDel(record?.floorId)}
-            okText="确认"
-            cancelText="取消"
-          >
-            <a>删除</a>
-          </Popconfirm>
-        </Space>
-      ),
-    },
+    // {
+    //   title: '操作',
+    //   dataIndex: 'opa',
+    //   key: 'floorId',
+    //   render: (_, record) => (
+    //     <Space size="middle">
+    //       <a onClick={() => handleEdit(record)}>编辑</a>
+    //       <Popconfirm
+    //         title="确认删除该楼层?"
+    //         onConfirm={() => handleDel(record?.floorId)}
+    //         okText="确认"
+    //         cancelText="取消"
+    //       >
+    //         <a>删除</a>
+    //       </Popconfirm>
+    //     </Space>
+    //   ),
+    // },
   ];
 
   return (
     <PageContainer>
       <div className={styles.floorManagement}>
-        <Button
+        {/* <Button
           type="primary"
           onClick={() => {
             setIsVisible(true);
@@ -153,7 +153,7 @@ const FloorManagement = () => {
           }}
         >
           新增
-        </Button>
+        </Button> */}
 
         <div className={styles.table}>
           <Table

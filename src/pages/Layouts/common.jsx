@@ -90,6 +90,7 @@ export function addModelByTypeName(typeName, positionX, positionY, positionZ, sc
       model = gangting_model.clone();
       break;
     case '民警':
+      console.log('民警')
       model = minjing_model.clone();
       break;
     case '特警':

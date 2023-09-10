@@ -36,47 +36,33 @@ const LayoutManagement = () => {
 
   return (
     <div className={styles.layoutManagement}>
-      <div className={styles.header}>{currentFloorTab?.floorTitle}</div>
+      {/* <div className={styles.header}>{currentFloorTab?.floorTitle}</div> */}
       <div className={styles.content}>
-        <div className={styles.contentLeft}>
-          <div className={styles?.inner}>
-            {currentIndex === 0 ? (
-              <Leave floorId={currentFloorTab?.floorId} />
-            ) : currentIndex === 1 ? (
-              <Platform floorId={currentFloorTab?.floorId} />
-            ) : currentIndex === 2 ? (
-              <Arrive floorId={currentFloorTab?.floorId} />
-            ) : (
-              <div>其他</div>
-            )}
-          </div>
+        <div className={styles?.inner}>
+        {currentIndex === 0 ? (
+            <Leave floorId={currentFloorTab?.floorId} />
+        ) : currentIndex === 1 ? (
+            <Platform floorId={currentFloorTab?.floorId} />
+        ) : currentIndex === 2 ? (
+            <Arrive floorId={currentFloorTab?.floorId} />
+        ) : (
+            <div>其他</div>
+        )}
         </div>
-        <div className={styles.contentRight}>
-          <div className={styles.legend}>
-            {policeTypeList?.map((item, index) => {
-              return (
-                <p key={index}>
-                  <img src={item.image} alt="" />
-                  <span>{item.name}</span>
-                </p>
-              );
-            })}
-          </div>
-          <div className={styles.tabList}>
-            {floorTabList?.map((tab, index) => {
-              return (
-                <span
-                  key={index}
-                  className={
-                    currentFloorTab?.floorId === tab?.floorId ? styles.active : styles.tabitem
-                  }
-                  onClick={() => clickFloorTab(tab, index)}
-                >
-                  {tab?.floorName}
-                </span>
-              );
-            })}
-          </div>
+        <div className={styles.tabList}>
+        {floorTabList?.map((tab, index) => {
+            return (
+            <span
+                key={index}
+                className={
+                currentFloorTab?.floorId === tab?.floorId ? styles.active : styles.tabitem
+                }
+                onClick={() => clickFloorTab(tab, index)}
+            >
+                {tab?.floorName}
+            </span>
+            );
+        })}
         </div>
       </div>
     </div>
