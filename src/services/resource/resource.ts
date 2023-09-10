@@ -1,4 +1,4 @@
- // @ts-ignore
+// @ts-ignore
 /* eslint-disable */
 import { request } from 'umi';
 const prefix = '/pdapi';
@@ -44,11 +44,11 @@ export async function editResourceType(
 /** 删除资源类型 */
 export async function deleteResourceType(
   params: {
-    policePowerId: string,
+    resourceId: string;
   },
   options?: { [key: string]: any },
 ) {
-  console.log(params)
+  console.log(params);
   return request<API.PoliceTypeResult[]>(`${prefix}/resourceTypes`, {
     method: 'DELETE',
     params: {
@@ -71,7 +71,6 @@ export async function getResourceDeploymentList(
     ...(options || {}),
   });
 }
-
 
 /** 添加资源部署 */
 export async function addResourceDeployment(
@@ -100,11 +99,11 @@ export async function editResourceDeployment(
 /** 删除资源部署 */
 export async function deleteResourceDeployment(
   params: {
-    resourceId: string,
+    resourceId: string;
   },
   options?: { [key: string]: any },
 ) {
-  console.log(params)
+  console.log(params);
   return request<API.PoliceDeploymentResult[]>(`${prefix}/resourceDeployments`, {
     method: 'DELETE',
     params: {
@@ -113,7 +112,6 @@ export async function deleteResourceDeployment(
     ...(options || {}),
   });
 }
-
 
 /**获取资源类型--下拉框 */
 export async function getResourceSelect(

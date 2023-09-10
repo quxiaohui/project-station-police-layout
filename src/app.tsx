@@ -49,7 +49,6 @@ export async function getInitialState(): Promise<{
 // ProLayout 支持的api https://procomponents.ant.design/components/layout
 export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) => {
   const pathname = window.location.pathname;
-  console.log(pathname)
   const isHide = pathname === '/layout';
   const config = {
     rightContentRender: () => <RightContent />,
@@ -60,9 +59,18 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
     // footerRender: () => <Footer />,
     onPageChange: () => {
       const { location } = history;
+      console.log(location, '====');
       // 如果没有登录，重定向到 login
       if (!initialState?.currentUser && location.pathname !== loginPath) {
         history.push(loginPath);
+      }
+      if (location.pathname === '/layout') {
+        setInitialState({
+          settings: {
+            menuRender: false,
+            headerRender: false,
+          },
+        });
       }
     },
     // links: isDev

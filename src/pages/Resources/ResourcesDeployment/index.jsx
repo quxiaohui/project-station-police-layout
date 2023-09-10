@@ -86,7 +86,7 @@ const ResourcesDeployment = () => {
   };
 
   /**
-   * 删警力类型
+   * 删警力布署
    */
   const handleDel = async (resourceId) => {
     try {
@@ -122,7 +122,7 @@ const ResourcesDeployment = () => {
         return false;
       }
     } else {
-      console.log(currentResource,'currentResource')
+      console.log(currentResource, 'currentResource');
       try {
         await editResourceDeployment({ ...values, deploymentId: currentResource?.deploymentId });
         pageCallback('编辑');

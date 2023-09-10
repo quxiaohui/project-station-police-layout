@@ -1,40 +1,40 @@
 .policeDeployment {
-    height: calc(100vh - 200px);
-    overflow-y: auto;
-    .conditions {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+  height: calc(100vh - 200px);
+  overflow-y: auto;
+  .conditions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    .cardItem {
+      width: 19%;
+      margin-top: 20px;
+      margin-right: 1%;
     }
-    .card {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        .cardItem {
-            margin-top: 20px;
-            margin-right: 1%;
-            width: 19%;
-        }
-        .cardItem:nth-of-type(5n) {
-            margin-right: 0;
-
-        }
-        p {
-            margin-bottom: 0;
-        }
-        :global {
-            .ant-card-body {
-                padding: 12px
-            }
-        }
+    .cardItem:nth-of-type(5n) {
+      margin-right: 0;
     }
-    .pagination {
-        width: 100%;
-        position: fixed;
-        bottom: 30px;
-        left: 50%;
-        transform: translate(-50%, 0);
-        display: flex;
-        justify-content: center;
+    p {
+      margin-bottom: 0;
     }
+    :global {
+      .ant-card-body {
+        padding: 12px;
+      }
+    }
+  }
+  .pagination {
+    position: fixed;
+    right: 24px;
+    bottom: 30px;
+    // left: 50%;
+    // transform: translate(-50%, 0);
+    display: flex;
+    justify-content: end;
+    width: 100%;
+  }
 }

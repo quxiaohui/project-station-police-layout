@@ -63,7 +63,6 @@ const PoliceType = () => {
       pageCallback('删除');
       return true;
     } catch (error) {
-      message.error('删除失败');
       return false;
     }
   };
@@ -231,7 +230,7 @@ const PoliceType = () => {
           >
             <Input placeholder="请输入" />
           </Form.Item>
-          <Form.Item label="图片" name="image">
+          {/* <Form.Item label="图片" name="image">
             <Upload
               name="avatar"
               listType="picture-card"
@@ -247,7 +246,7 @@ const PoliceType = () => {
                 uploadButton
               )}
             </Upload>
-          </Form.Item>
+          </Form.Item> */}
           <Form.Item label="序号" name="sortNo">
             <InputNumber placeholder="请输入" />
           </Form.Item>

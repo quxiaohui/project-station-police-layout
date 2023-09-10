@@ -35,13 +35,13 @@ const ResourcesType = () => {
   /**
    * 删警力类型
    */
-  const handleDel = async (policePowerId) => {
+  const handleDel = async (resourceId) => {
     try {
-      await deleteResourceType({ policePowerId });
+      await deleteResourceType({ resourceId });
       pageCallback('删除');
       return true;
     } catch (error) {
-      message.error('删除失败');
+      // message.error('删除失败');
       return false;
     }
   };
@@ -184,7 +184,7 @@ const ResourcesType = () => {
             >
               <Input placeholder="请输入" />
             </Form.Item>
-            <Form.Item label="图片" name="image"></Form.Item>
+            {/* <Form.Item label="图片" name="image"></Form.Item> */}
             <Form.Item label="序号" name="sortNo">
               <InputNumber placeholder="请输入" />
             </Form.Item>
