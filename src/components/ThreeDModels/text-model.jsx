@@ -36,7 +36,14 @@ export function createTextModel(data, scene) {
                         size: 14,           // 字体大小
                         height: 6,          // 字体深度
                     });
-                } else if (item.typeName == '文字') {
+                } else if (((item.title.includes('南') || item.title.includes('北')) && item.title.includes("站台")) ||
+                    item.title.includes("紧急出口") || item.title.includes("地铁") || item.title.includes("检票口")) {
+                    geometry = new textL(item.title, {
+                        font: font,          // 字体格式
+                        size: 4,           // 字体大小
+                        height: 1,          // 字体深度
+                    });
+                } else if (item.typeName == '文字' && (item.title.includes("微笑亭") || item.title.includes("出站通道") || item.title.includes("温馨岛") || item.title.includes("候车大厅"))) {
                     geometry = new textL(item.title, {
                         font: font,          // 字体格式
                         size: 14,           // 字体大小
@@ -50,7 +57,8 @@ export function createTextModel(data, scene) {
                     });
                 }
 
-                if (item.typeName == '文字' && (item.positionX > 500 || item.positionX < -500 || item.positionZ > 200 || item.positionZ < -200)) {
+                if (item.typeName == '文字' && (item.positionX > 500 || item.positionX < -500 || item.positionZ > 200 || item.positionZ < -200
+                    || item.title.includes("紧急出口") || item.title.includes("地铁"))) {
                     material = blackMat;
                 } else if (item.typeName == '文字') {
                     material = redMat;
@@ -65,7 +73,7 @@ export function createTextModel(data, scene) {
                 } else if (item.typeName == "文字") {
                     mesh.translateY(40);
                 }
-                else if (item.typeName == "站台") {
+                else if (item.typeName == "站台" || item.typeName == "检票口") {
                     mesh.translateY(30);
                     if (item.positionZ < 0) {
                         mesh.translateX(-20);

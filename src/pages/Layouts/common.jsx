@@ -13,6 +13,8 @@ import empty_room_model from '../../components/ThreeDModels/empty-room-model.jsx
 import men_model from '../../components/ThreeDModels/men-model.jsx'; //门
 import zuowei_model from '../../components/ThreeDModels/zuowei-model.jsx'; //座椅
 import zhantai_model from '../../components/ThreeDModels/zhantai-model.jsx'; //站台
+import jianpiaokou_model from '../../components/ThreeDModels/jianpiaokou-model.jsx'; //检票口
+import bupiao_model from '../../components/ThreeDModels/bupiao-model.jsx'; //补票
 
 import jingche_model from '../../components/ThreeDModels/jingche-model.jsx'; //警车
 import diandongche_model from '../../components/ThreeDModels/diandongche-model.jsx'; //警用电动车
@@ -28,6 +30,7 @@ export function addModelByTypeName(typeName, positionX, positionY, positionZ, sc
   switch (typeName) {
     case '背景':
       model = back_model.clone();
+      console.log("背景");
       break;
     case '外边界':
       model = outsideground_model.clone();
@@ -64,6 +67,12 @@ export function addModelByTypeName(typeName, positionX, positionY, positionZ, sc
       break;
     case '站台':
       model = zhantai_model.clone();
+      break;
+    case '检票口':
+      model = jianpiaokou_model.clone();
+      break;
+    case '补票':
+      model = bupiao_model.clone();
       break;
 
     case '警车':

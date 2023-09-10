@@ -61,7 +61,7 @@ const Leave = (props) => {
     const width = container.clientWidth;
     const height = container.clientHeight;
     const camera = new THREE.PerspectiveCamera(30, width / height, 1, 3000);
-    camera.position.set(200, 800, 1200);
+    camera.position.set(250, 1000, 1000);
     camera.lookAt(0, 0, 0);
 
     const renderer = new THREE.WebGLRenderer();

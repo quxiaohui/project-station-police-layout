@@ -18,8 +18,6 @@ const Arrive = (props) => {
     addModelByTypeName('背景', 0, 0, 0, scene);
     addModelByTypeName('内边界', 0, 0, 0, scene);
 
-    //addModelByTypeName('站台', -450, 0, 90, scene);
-
     //   '5b5d9b0d-82f4-40fc-97bf-3d9a5ef2df75'
     const getResourceLayout = () => {
         getResourceDeploymentList({
@@ -61,9 +59,8 @@ const Arrive = (props) => {
         const container = document.getElementById('container');
         const width = container.clientWidth;
         const height = container.clientHeight;
-        console.log("container.clientHeight", container.clientHeight);
         const camera = new THREE.PerspectiveCamera(30, width / height, 1, 3000);
-        camera.position.set(200, 800, 1200);
+        camera.position.set(220, 880, 800);
         camera.lookAt(0, 0, 0);
 
         const renderer = new THREE.WebGLRenderer();

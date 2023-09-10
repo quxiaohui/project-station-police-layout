@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-const geometry = new THREE.BoxGeometry(10, 20, 30);
+const geometry = new THREE.BoxGeometry(20, 20, 10);
 //纹理贴图加载器TextureLoader
 const texLoader = new THREE.TextureLoader();
 // .load()方法加载图像，返回一个纹理对象Texture
