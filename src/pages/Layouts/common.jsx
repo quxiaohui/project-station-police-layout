@@ -15,6 +15,7 @@ import zuowei_model from '../../components/ThreeDModels/zuowei-model.jsx'; //座
 import zhantai_model from '../../components/ThreeDModels/zhantai-model.jsx'; //站台
 import jianpiaokou_model from '../../components/ThreeDModels/jianpiaokou-model.jsx'; //检票口
 import bupiao_model from '../../components/ThreeDModels/bupiao-model.jsx'; //补票
+import dianti_model from '../../components/ThreeDModels/dianti-model.jsx'; //站台
 
 import jingche_model from '../../components/ThreeDModels/jingche-model.jsx'; //警车
 import diandongche_model from '../../components/ThreeDModels/diandongche-model.jsx'; //警用电动车
@@ -24,13 +25,12 @@ import minjing_model from '../../components/ThreeDModels/minjing-model.jsx'; //�
 import tejing_model from '../../components/ThreeDModels/tejing-model.jsx'; //特警
 
 export function addModelByTypeName(typeName, positionX, positionY, positionZ, scene) {
-  if (typeName == '文字')
-    return;
+  if (typeName == '文字') return;
   var model;
   switch (typeName) {
     case '背景':
       model = back_model.clone();
-      console.log("背景");
+      console.log('背景');
       break;
     case '外边界':
       model = outsideground_model.clone();
@@ -73,6 +73,8 @@ export function addModelByTypeName(typeName, positionX, positionY, positionZ, sc
       break;
     case '补票':
       model = bupiao_model.clone();
+    case '电梯':
+      model = dianti_model.clone();
       break;
 
     case '警车':
